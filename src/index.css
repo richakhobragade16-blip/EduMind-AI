@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+/* Tailwind CSS v4 class-based dark mode variant */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+:root {
+  color-scheme: light;
+}
+
+:root.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  html, body {
+    font-family: var(--font-sans);
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  pre, code, kbd, samp {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.35);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.65);
+}
+
+/* Customizable Chat Background Patterns */
+.chat-pattern-none {
+  background-image: none;
+}
+
+.chat-pattern-dots {
+  background-image: radial-gradient(rgba(99, 102, 241, 0.12) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.dark .chat-pattern-dots {
+  background-image: radial-gradient(rgba(129, 140, 248, 0.15) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.chat-pattern-grid {
+  background-image: 
+    linear-gradient(to right, rgba(99, 102, 241, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.dark .chat-pattern-grid {
+  background-image: 
+    linear-gradient(to right, rgba(129, 140, 248, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(129, 140, 248, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.chat-pattern-mesh {
+  background-image: 
+    radial-gradient(at 10% 10%, rgba(99, 102, 241, 0.08) 0px, transparent 50%),
+    radial-gradient(at 90% 90%, rgba(168, 85, 247, 0.08) 0px, transparent 50%);
+}
+
+.dark .chat-pattern-mesh {
+  background-image: 
+    radial-gradient(at 10% 10%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
+    radial-gradient(at 90% 90%, rgba(168, 85, 247, 0.12) 0px, transparent 50%);
+}
+
